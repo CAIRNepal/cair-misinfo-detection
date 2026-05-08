@@ -23,4 +23,5 @@ This project investigates how misinformation spreads across social media by comb
 ## Affiliation
 
 **Center for Artificial Intelligence Research Nepal (CAIR)**
+
 Samriddha Pathak(Intern) — samriddha.pathak@cair-nepal.org
