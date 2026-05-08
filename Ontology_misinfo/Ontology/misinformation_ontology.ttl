@@ -11,14 +11,14 @@
 @prefix schema:   <https://schema.org/> .
 @prefix nif:      <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix oa:       <http://www.w3.org/ns/oa#> .
-@prefix mis:      <http://cair-nepal.org/ontology/misinformation#> .
-@prefix misind:   <http://cair-nepal.org/ontology/misinformation/individuals#> .
+@prefix mis:      <http://cair-nepal.org/misinformation#> .
+@prefix misind:   <http://cair-nepal.org/misinformation/individuals#> .
 
 # ===========================================================================
 #  ONTOLOGY DECLARATION
 # ===========================================================================
 
-<http://cair-nepal.org/ontology/misinformation>
+<http://cair-nepal.org/misinformation>
     a owl:Ontology ;
 
     # --- Bibliographic Metadata (DC / DCTerms) ---
@@ -37,12 +37,12 @@
     dcterms:created    "2026-01-01"^^xsd:date ;
     dcterms:modified   "2026-04-18"^^xsd:date ;
     dcterms:license    <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:identifier "http://cair-nepal.org/ontology/misinformation"^^xsd:anyURI ;
+    dcterms:identifier "http://cair-nepal.org/misinformation"^^xsd:anyURI ;
 
     # --- Versioning ---
-    owl:versionIRI     <http://cair-nepal.org/ontology/misinformation/1.0.0> ;
+    owl:versionIRI     <http://cair-nepal.org/misinformation/1.0.0> ;
     owl:versionInfo    "1.0.0"^^xsd:string ;
-    owl:priorVersion   <http://cair-nepal.org/ontology/misinformation/0.9.0> ;
+    owl:priorVersion   <http://cair-nepal.org/misinformation/0.9.0> ;
 
     # --- Ontology Annotation ---
     rdfs:comment
@@ -68,7 +68,7 @@ mis:SocialMediaPost
     rdfs:label "Social Media Post"^^xsd:string ;
     rdfs:comment "A generic post published on any social media platform. Superclass of Tweet, enabling future extension to other platforms (Reddit, Facebook, etc.)."^^xsd:string ;
     skos:definition "A discrete unit of user-generated content published on a social networking platform."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> ;
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> ;
     owl:equivalentClass sioc:Post .
 
 # ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ mis:Tweet
     rdfs:comment "A post published on the Twitter/X platform, consisting of up to 280 characters of text, optional media, and metadata."^^xsd:string ;
     skos:definition "A microblog post on Twitter/X, uniquely identified by a tweet ID, authored by a single User account, published at a specific timestamp."^^xsd:string ;
     skos:example "A tweet asserting a health claim with hashtags #vaccines and #health."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:OriginalTweet
     a owl:Class ;
@@ -91,7 +91,7 @@ mis:OriginalTweet
     rdfs:label "Original Tweet"^^xsd:string ;
     rdfs:comment "A tweet authored directly by a user and not a repost of any existing tweet."^^xsd:string ;
     skos:definition "A first-instance tweet that constitutes the primary unit of content generation."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Retweet
     a owl:Class ;
@@ -99,7 +99,7 @@ mis:Retweet
     rdfs:label "Retweet"^^xsd:string ;
     rdfs:comment "A republication of an existing tweet by a different (or the same) user, preserving the original content."^^xsd:string ;
     skos:definition "A derivative tweet that re-shares an OriginalTweet, contributing to information propagation."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:QuoteTweet
     a owl:Class ;
@@ -107,14 +107,14 @@ mis:QuoteTweet
     rdfs:label "Quote Tweet"^^xsd:string ;
     rdfs:comment "A tweet that embeds and comments on another tweet, adding new textual context."^^xsd:string ;
     skos:definition "A tweet that references and quotes an existing tweet while appending additional commentary."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:ReplyTweet
     a owl:Class ;
     rdfs:subClassOf mis:Tweet ;
     rdfs:label "Reply Tweet"^^xsd:string ;
     rdfs:comment "A tweet posted in direct response to another tweet, forming a conversational thread."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 [ a owl:AllDisjointClasses ;
   owl:members ( mis:OriginalTweet mis:Retweet mis:QuoteTweet mis:ReplyTweet ) ] .
@@ -131,7 +131,7 @@ mis:User
     rdfs:label "User"^^xsd:string ;
     rdfs:comment "A registered Twitter/X account capable of authoring, retweeting, and interacting with tweets."^^xsd:string ;
     skos:definition "An agent on the Twitter/X platform, identified by a unique user ID and handle."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> ;
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> ;
     owl:equivalentClass sioc:UserAccount .
 
 mis:VerifiedUser
@@ -140,7 +140,7 @@ mis:VerifiedUser
     rdfs:label "Verified User"^^xsd:string ;
     rdfs:comment "A Twitter/X user whose identity has been confirmed by the platform (legacy blue check or organisation verification)."^^xsd:string ;
     skos:definition "A user account bearing official platform verification, typically associated with public figures, organisations, or journalists."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
     # Semantic note: VerifiedUser individuals carry mis:isVerified = true^^xsd:boolean
 
 mis:UnverifiedUser
@@ -148,7 +148,7 @@ mis:UnverifiedUser
     rdfs:subClassOf mis:User ;
     rdfs:label "Unverified User"^^xsd:string ;
     rdfs:comment "A Twitter/X user without platform-issued identity verification."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
     # Semantic note: UnverifiedUser individuals carry mis:isVerified = false^^xsd:boolean
 
 mis:HighInfluenceUser
@@ -157,7 +157,7 @@ mis:HighInfluenceUser
     rdfs:label "High Influence User"^^xsd:string ;
     rdfs:comment "A user whose follower count exceeds the domain-defined influence threshold, indicating significant reach."^^xsd:string ;
     skos:definition "A user with a follower-to-friend ratio and absolute follower count that classify them as a macro-influencer within the dataset."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:BotSuspectUser
     a owl:Class ;
@@ -165,7 +165,7 @@ mis:BotSuspectUser
     rdfs:label "Bot Suspect User"^^xsd:string ;
     rdfs:comment "A user flagged by heuristic or ML-based analysis as potentially automated rather than human."^^xsd:string ;
     skos:scopeNote "Classification as BotSuspectUser does not constitute confirmation of automated behaviour; it signals elevated suspicion for downstream analysis."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 [ a owl:AllDisjointClasses ;
   owl:members ( mis:VerifiedUser mis:UnverifiedUser ) ] .
@@ -181,7 +181,7 @@ mis:Claim
     rdfs:label "Claim"^^xsd:string ;
     rdfs:comment "A declarative assertion extracted from or implied by a tweet, amenable to truth evaluation."^^xsd:string ;
     skos:definition "A proposition or statement that can be evaluated for factual accuracy against external knowledge sources."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:MisinformationClaim
     a owl:Class ;
@@ -190,7 +190,7 @@ mis:MisinformationClaim
     rdfs:comment "A claim that has been annotated as factually incorrect, misleading, or lacking credible evidentiary support."^^xsd:string ;
     skos:definition "A verifiably false or intentionally misleading assertion disseminated via a tweet."^^xsd:string ;
     skos:broader mis:Claim ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
     # Semantic note: MisinformationClaim is the claim of a tweet labelled as misinformation
 
 mis:AccurateClaim
@@ -200,21 +200,21 @@ mis:AccurateClaim
     rdfs:comment "A claim that has been verified as factually correct and consistent with authoritative knowledge sources."^^xsd:string ;
     skos:definition "A verified, factually correct assertion disseminated via a tweet."^^xsd:string ;
     skos:broader mis:Claim ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:UnverifiedClaim
     a owl:Class ;
     rdfs:subClassOf mis:Claim ;
     rdfs:label "Unverified Claim"^^xsd:string ;
     rdfs:comment "A claim whose truth value has not yet been determined by fact-checking or annotation."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:SatiricalClaim
     a owl:Class ;
     rdfs:subClassOf mis:Claim ;
     rdfs:label "Satirical Claim"^^xsd:string ;
     rdfs:comment "A statement that is intentionally humorous or hyperbolic, not intended as a factual assertion but potentially misread as one."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 [ a owl:AllDisjointClasses ;
   owl:members ( mis:MisinformationClaim mis:AccurateClaim mis:UnverifiedClaim mis:SatiricalClaim ) ] .
@@ -229,7 +229,7 @@ mis:Domain
     rdfs:label "Domain"^^xsd:string ;
     rdfs:comment "A thematic category classifying the subject matter of a tweet."^^xsd:string ;
     skos:definition "A high-level topical area within which a tweet's content is situated."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:PoliticalDomain
     a owl:Class ;
@@ -237,7 +237,7 @@ mis:PoliticalDomain
     rdfs:label "Political Domain"^^xsd:string ;
     rdfs:comment "Tweets relating to politics, governance, elections, policy-making, political figures, or civic affairs."^^xsd:string ;
     skos:example "Tweets about election results, parliamentary proceedings, or political party statements."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:EducationalDomain
     a owl:Class ;
@@ -245,7 +245,7 @@ mis:EducationalDomain
     rdfs:label "Educational Domain"^^xsd:string ;
     rdfs:comment "Tweets relating to education systems, academic research, learning institutions, curricula, or educational policy."^^xsd:string ;
     skos:example "Tweets about university admissions, academic fraud, or educational access."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:HealthcareDomain
     a owl:Class ;
@@ -253,7 +253,7 @@ mis:HealthcareDomain
     rdfs:label "Healthcare Domain"^^xsd:string ;
     rdfs:comment "Tweets relating to medicine, public health, pharmaceuticals, diseases, vaccines, or healthcare systems."^^xsd:string ;
     skos:example "Tweets about vaccine safety, COVID-19 treatments, or medical misinformation."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 [ a owl:AllDisjointClasses ;
   owl:members ( mis:PoliticalDomain mis:EducationalDomain mis:HealthcareDomain ) ] .
@@ -269,35 +269,35 @@ mis:InformationLabel
     rdfs:label "Information Label"^^xsd:string ;
     rdfs:comment "An annotation assigned to a tweet or claim indicating its misinformation status, derived from human annotation or automated classification."^^xsd:string ;
     skos:definition "A categorical label that encodes the veracity assessment of a tweet or claim."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:AnnotationEvent
     a owl:Class ;
     rdfs:subClassOf prov:Activity ;
     rdfs:label "Annotation Event"^^xsd:string ;
     rdfs:comment "A provenance activity recording when, by whom, and by what method a tweet was annotated with an information label."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Annotator
     a owl:Class ;
     rdfs:subClassOf prov:Agent ;
     rdfs:label "Annotator"^^xsd:string ;
     rdfs:comment "An agent (human expert or automated system) responsible for assigning information labels to tweets."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:HumanAnnotator
     a owl:Class ;
     rdfs:subClassOf mis:Annotator ;
     rdfs:label "Human Annotator"^^xsd:string ;
     rdfs:comment "A domain expert or crowd-sourced contributor who manually assigns veracity labels."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:AutomatedAnnotator
     a owl:Class ;
     rdfs:subClassOf mis:Annotator ;
     rdfs:label "Automated Annotator"^^xsd:string ;
     rdfs:comment "A machine learning model or rule-based system that assigns veracity labels programmatically."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 [ a owl:AllDisjointClasses ;
   owl:members ( mis:HumanAnnotator mis:AutomatedAnnotator ) ] .
@@ -313,14 +313,14 @@ mis:PropagationCascade
     rdfs:label "Propagation Cascade"^^xsd:string ;
     rdfs:comment "A directed tree or graph of retweets and quote tweets that traces how a piece of information spreads from an original tweet."^^xsd:string ;
     skos:definition "A structured representation of the diffusion path of a tweet through a social network."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Thread
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
     rdfs:label "Thread"^^xsd:string ;
     rdfs:comment "A sequence of reply tweets connected to an original tweet, forming a conversational structure."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ---------------------------------------------------------------------------
@@ -332,19 +332,19 @@ mis:Hashtag
     rdfs:label "Hashtag"^^xsd:string ;
     rdfs:comment "A metadata tag prefixed with # used within a tweet to index content by topic."^^xsd:string ;
     skos:definition "A user-generated topical label embedded in tweet text, enabling cross-tweet thematic discovery."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Mention
     a owl:Class ;
     rdfs:label "Mention"^^xsd:string ;
     rdfs:comment "A reference to another Twitter/X user within a tweet, prefixed with @."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:URL
     a owl:Class ;
     rdfs:label "URL"^^xsd:string ;
     rdfs:comment "A hyperlink included within a tweet, potentially pointing to external evidence, news sources, or misinformation amplifiers."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ---------------------------------------------------------------------------
@@ -355,21 +355,21 @@ mis:Source
     a owl:Class ;
     rdfs:label "Source"^^xsd:string ;
     rdfs:comment "The application client or platform interface through which a tweet was published (e.g., Twitter for Android, TweetDeck)."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Location
     a owl:Class ;
     rdfs:subClassOf schema:Place ;
     rdfs:label "Location"^^xsd:string ;
     rdfs:comment "A geographic location self-reported by a user or geo-tagged to a tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:Dataset
     a owl:Class ;
     rdfs:subClassOf prov:Entity ;
     rdfs:label "Dataset"^^xsd:string ;
     rdfs:comment "A structured collection of tweets used for misinformation detection research, characterised by its domain composition, size, and annotation methodology."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ===========================================================================
@@ -389,7 +389,7 @@ mis:hasAuthor
     rdfs:comment "Relates a tweet to the single User who authored it. Declared functional: each tweet has exactly one author."^^xsd:string ;
     skos:definition "The authorship relation between a tweet and its originating user account."^^xsd:string ;
     owl:inverseOf mis:authored ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:authored
     a owl:ObjectProperty ;
@@ -398,7 +398,7 @@ mis:authored
     rdfs:label "authored"^^xsd:string ;
     rdfs:comment "Inverse of hasAuthor: relates a user to all tweets they have authored."^^xsd:string ;
     owl:inverseOf mis:hasAuthor ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:hasClaim
     a owl:ObjectProperty ;
@@ -407,7 +407,7 @@ mis:hasClaim
     rdfs:label "has claim"^^xsd:string ;
     rdfs:comment "Relates a tweet to one or more claims it asserts or implies."^^xsd:string ;
     owl:inverseOf mis:isClaimOf ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isClaimOf
     a owl:ObjectProperty ;
@@ -416,7 +416,7 @@ mis:isClaimOf
     rdfs:label "is claim of"^^xsd:string ;
     rdfs:comment "Inverse of hasClaim: relates a claim back to the tweet that expresses it."^^xsd:string ;
     owl:inverseOf mis:hasClaim ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:belongsToDomain
     a owl:ObjectProperty ;
@@ -424,7 +424,7 @@ mis:belongsToDomain
     rdfs:range mis:Domain ;
     rdfs:label "belongs to domain"^^xsd:string ;
     rdfs:comment "Assigns one or more thematic domains to a tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:hasInformationLabel
     a owl:ObjectProperty ;
@@ -433,7 +433,7 @@ mis:hasInformationLabel
     rdfs:range mis:InformationLabel ;
     rdfs:label "has information label"^^xsd:string ;
     rdfs:comment "Associates a tweet with its veracity annotation label. Declared functional: at most one label per tweet post-annotation."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:hasHashtag
     a owl:ObjectProperty ;
@@ -441,7 +441,7 @@ mis:hasHashtag
     rdfs:range mis:Hashtag ;
     rdfs:label "has hashtag"^^xsd:string ;
     rdfs:comment "Relates a tweet to hashtag entities extracted from its text."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:hasMention
     a owl:ObjectProperty ;
@@ -449,7 +449,7 @@ mis:hasMention
     rdfs:range mis:Mention ;
     rdfs:label "has mention"^^xsd:string ;
     rdfs:comment "Relates a tweet to user mentions (@handle) present in its text."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:containsURL
     a owl:ObjectProperty ;
@@ -457,7 +457,7 @@ mis:containsURL
     rdfs:range mis:URL ;
     rdfs:label "contains URL"^^xsd:string ;
     rdfs:comment "Relates a tweet to hyperlinks embedded in its text."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:publishedVia
     a owl:ObjectProperty ;
@@ -465,7 +465,7 @@ mis:publishedVia
     rdfs:range mis:Source ;
     rdfs:label "published via"^^xsd:string ;
     rdfs:comment "Identifies the platform client or application used to post the tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:partOfThread
     a owl:ObjectProperty ;
@@ -473,7 +473,7 @@ mis:partOfThread
     rdfs:range mis:Thread ;
     rdfs:label "part of thread"^^xsd:string ;
     rdfs:comment "Associates a tweet with the conversational thread to which it belongs."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:partOfCascade
     a owl:ObjectProperty ;
@@ -481,7 +481,7 @@ mis:partOfCascade
     rdfs:range mis:PropagationCascade ;
     rdfs:label "part of cascade"^^xsd:string ;
     rdfs:comment "Relates a tweet (original or retweet) to its propagation cascade."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  2.2  Structural tweet relations
@@ -494,7 +494,7 @@ mis:isRetweetOf
     rdfs:range mis:OriginalTweet ;
     rdfs:label "is retweet of"^^xsd:string ;
     rdfs:comment "Relates a retweet to the original tweet it reposts. Functional: a retweet has exactly one source."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isQuoteOf
     a owl:ObjectProperty ;
@@ -503,7 +503,7 @@ mis:isQuoteOf
     rdfs:range mis:Tweet ;
     rdfs:label "is quote of"^^xsd:string ;
     rdfs:comment "Relates a quote tweet to the tweet it quotes and comments on."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isReplyTo
     a owl:ObjectProperty ;
@@ -511,7 +511,7 @@ mis:isReplyTo
     rdfs:range mis:Tweet ;
     rdfs:label "is reply to"^^xsd:string ;
     rdfs:comment "Relates a reply tweet to the tweet it responds to."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  2.3  User relations
@@ -523,7 +523,7 @@ mis:userLocatedIn
     rdfs:range mis:Location ;
     rdfs:label "user located in"^^xsd:string ;
     rdfs:comment "Associates a user with their self-reported or inferred geographic location."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:follows
     a owl:ObjectProperty ;
@@ -532,7 +532,7 @@ mis:follows
     rdfs:range mis:User ;
     rdfs:label "follows"^^xsd:string ;
     rdfs:comment "Directed social relation: a user subscribes to another user's content feed."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  2.4  Annotation provenance relations
@@ -545,7 +545,7 @@ mis:annotatedBy
     rdfs:label "annotated by"^^xsd:string ;
     rdfs:comment "Relates an information label to the annotator (human or automated) who assigned it."^^xsd:string ;
     rdfs:subPropertyOf prov:wasAttributedTo ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:annotationMethod
     a owl:ObjectProperty ;
@@ -553,7 +553,7 @@ mis:annotationMethod
     rdfs:range mis:AnnotationEvent ;
     rdfs:label "annotation method"^^xsd:string ;
     rdfs:comment "Links a label to the annotation activity that produced it, capturing methodology provenance."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:derivedFromDataset
     a owl:ObjectProperty ;
@@ -562,7 +562,7 @@ mis:derivedFromDataset
     rdfs:label "derived from dataset"^^xsd:string ;
     rdfs:comment "Indicates the research dataset from which this tweet instance was drawn."^^xsd:string ;
     rdfs:subPropertyOf prov:wasDerivedFrom ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:refutedBy
     a owl:ObjectProperty ;
@@ -570,7 +570,7 @@ mis:refutedBy
     rdfs:range mis:URL ;
     rdfs:label "refuted by"^^xsd:string ;
     rdfs:comment "Links a misinformation claim to an authoritative URL (fact-check article, primary source) that refutes it."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:supportedBy
     a owl:ObjectProperty ;
@@ -578,7 +578,7 @@ mis:supportedBy
     rdfs:range mis:URL ;
     rdfs:label "supported by"^^xsd:string ;
     rdfs:comment "Links an accurate claim to an authoritative URL that corroborates it."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ===========================================================================
@@ -596,7 +596,7 @@ mis:tweetID
     rdfs:range xsd:string ;
     rdfs:label "tweet ID"^^xsd:string ;
     rdfs:comment "The unique numeric identifier assigned to a tweet by the Twitter/X platform."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:tweetText
     a owl:DatatypeProperty ;
@@ -604,7 +604,7 @@ mis:tweetText
     rdfs:range xsd:string ;
     rdfs:label "tweet text"^^xsd:string ;
     rdfs:comment "The full textual content of the tweet, including hashtags, mentions, and URLs."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:tweetDate
     a owl:DatatypeProperty ;
@@ -612,7 +612,7 @@ mis:tweetDate
     rdfs:range xsd:dateTime ;
     rdfs:label "tweet date"^^xsd:string ;
     rdfs:comment "The ISO 8601 timestamp at which the tweet was published on the platform."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isMisinformation
     a owl:DatatypeProperty ;
@@ -620,7 +620,7 @@ mis:isMisinformation
     rdfs:range xsd:boolean ;
     rdfs:label "is misinformation"^^xsd:string ;
     rdfs:comment "Binary annotation flag: true if the tweet has been labelled as containing misinformation, false otherwise."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isRetweet
     a owl:DatatypeProperty ;
@@ -628,7 +628,7 @@ mis:isRetweet
     rdfs:range xsd:boolean ;
     rdfs:label "is retweet"^^xsd:string ;
     rdfs:comment "Indicates whether the tweet is a repost of an existing tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:hashtagList
     a owl:DatatypeProperty ;
@@ -637,7 +637,7 @@ mis:hashtagList
     rdfs:label "hashtag list"^^xsd:string ;
     rdfs:comment "A serialised string representation of all hashtags extracted from the tweet text."^^xsd:string ;
     skos:scopeNote "For structured access to individual hashtags, use the mis:hasHashtag object property."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:sourceClient
     a owl:DatatypeProperty ;
@@ -645,7 +645,7 @@ mis:sourceClient
     rdfs:range xsd:string ;
     rdfs:label "source client"^^xsd:string ;
     rdfs:comment "The name of the application or client used to post the tweet (e.g., Twitter for Android, Twitter Web App)."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:retweetCount
     a owl:DatatypeProperty ;
@@ -653,7 +653,7 @@ mis:retweetCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "retweet count"^^xsd:string ;
     rdfs:comment "The number of times this tweet has been retweeted at the time of data collection."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:likeCount
     a owl:DatatypeProperty ;
@@ -661,7 +661,7 @@ mis:likeCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "like count"^^xsd:string ;
     rdfs:comment "The number of likes (favourites) this tweet received at the time of data collection."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:replyCount
     a owl:DatatypeProperty ;
@@ -669,7 +669,7 @@ mis:replyCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "reply count"^^xsd:string ;
     rdfs:comment "The number of direct replies to this tweet at the time of data collection."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:languageCode
     a owl:DatatypeProperty ;
@@ -677,7 +677,7 @@ mis:languageCode
     rdfs:range xsd:language ;
     rdfs:label "language code"^^xsd:string ;
     rdfs:comment "BCP 47 language tag detected by the platform for the tweet content (e.g., en, ne, hi)."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:sensitiveContent
     a owl:DatatypeProperty ;
@@ -685,7 +685,7 @@ mis:sensitiveContent
     rdfs:range xsd:boolean ;
     rdfs:label "sensitive content"^^xsd:string ;
     rdfs:comment "Platform flag indicating whether the tweet has been marked as potentially sensitive."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  3.2  User datatype properties
@@ -698,7 +698,7 @@ mis:userID
     rdfs:range xsd:string ;
     rdfs:label "user ID"^^xsd:string ;
     rdfs:comment "The unique numeric identifier assigned to a user account by the Twitter/X platform."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:userName
     a owl:DatatypeProperty ;
@@ -706,7 +706,7 @@ mis:userName
     rdfs:range xsd:string ;
     rdfs:label "user name"^^xsd:string ;
     rdfs:comment "The Twitter/X handle (@username) of the user account."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:userDisplayName
     a owl:DatatypeProperty ;
@@ -714,7 +714,7 @@ mis:userDisplayName
     rdfs:range xsd:string ;
     rdfs:label "user display name"^^xsd:string ;
     rdfs:comment "The human-readable display name of the user, distinct from the handle."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:userLocation
     a owl:DatatypeProperty ;
@@ -722,7 +722,7 @@ mis:userLocation
     rdfs:range xsd:string ;
     rdfs:label "user location"^^xsd:string ;
     rdfs:comment "The self-reported geographic location string from the user's profile."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:userDescription
     a owl:DatatypeProperty ;
@@ -730,7 +730,7 @@ mis:userDescription
     rdfs:range xsd:string ;
     rdfs:label "user description"^^xsd:string ;
     rdfs:comment "The biography or self-description text from the user's Twitter/X profile."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:userCreated
     a owl:DatatypeProperty ;
@@ -738,7 +738,7 @@ mis:userCreated
     rdfs:range xsd:dateTime ;
     rdfs:label "user created"^^xsd:string ;
     rdfs:comment "The ISO 8601 timestamp at which the Twitter/X account was created."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:followerCount
     a owl:DatatypeProperty ;
@@ -746,7 +746,7 @@ mis:followerCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "follower count"^^xsd:string ;
     rdfs:comment "The number of accounts following this user at the time of data collection."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:friendCount
     a owl:DatatypeProperty ;
@@ -754,7 +754,7 @@ mis:friendCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "friend count"^^xsd:string ;
     rdfs:comment "The number of accounts this user is following at the time of data collection."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:favouriteCount
     a owl:DatatypeProperty ;
@@ -762,7 +762,7 @@ mis:favouriteCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "favourite count"^^xsd:string ;
     rdfs:comment "The cumulative number of tweets the user has liked over their account lifetime."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:tweetCount
     a owl:DatatypeProperty ;
@@ -770,7 +770,7 @@ mis:tweetCount
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "tweet count"^^xsd:string ;
     rdfs:comment "The total number of tweets (including retweets) posted by this user over their account lifetime."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:isVerified
     a owl:DatatypeProperty ;
@@ -778,7 +778,7 @@ mis:isVerified
     rdfs:range xsd:boolean ;
     rdfs:label "is verified"^^xsd:string ;
     rdfs:comment "Boolean flag indicating whether the user holds official platform verification status."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:accountAgeInDays
     a owl:DatatypeProperty ;
@@ -786,7 +786,7 @@ mis:accountAgeInDays
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "account age in days"^^xsd:string ;
     rdfs:comment "Derived metric: number of days elapsed since account creation at the time of data collection. Useful for bot detection heuristics."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:followerFriendRatio
     a owl:DatatypeProperty ;
@@ -794,7 +794,7 @@ mis:followerFriendRatio
     rdfs:range xsd:decimal ;
     rdfs:label "follower-friend ratio"^^xsd:string ;
     rdfs:comment "Derived metric: ratio of followerCount to friendCount. High ratios indicate broad influence; very low ratios may signal bot-like behaviour."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  3.3  Hashtag / Mention / URL datatype properties
@@ -807,7 +807,7 @@ mis:hashtagText
     rdfs:range xsd:string ;
     rdfs:label "hashtag text"^^xsd:string ;
     rdfs:comment "The normalised text of the hashtag (without the # prefix, lowercased)."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:mentionHandle
     a owl:DatatypeProperty ;
@@ -815,7 +815,7 @@ mis:mentionHandle
     rdfs:range xsd:string ;
     rdfs:label "mention handle"^^xsd:string ;
     rdfs:comment "The @handle of the user mentioned in the tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:urlValue
     a owl:DatatypeProperty ;
@@ -823,7 +823,7 @@ mis:urlValue
     rdfs:range xsd:anyURI ;
     rdfs:label "URL value"^^xsd:string ;
     rdfs:comment "The expanded (unshortened) URL string embedded in the tweet."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:urlDomain
     a owl:DatatypeProperty ;
@@ -831,7 +831,7 @@ mis:urlDomain
     rdfs:range xsd:string ;
     rdfs:label "URL domain"^^xsd:string ;
     rdfs:comment "The registered domain name of the linked URL, used for source credibility analysis."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  3.4  Label / annotation datatype properties
@@ -843,7 +843,7 @@ mis:labelValue
     rdfs:range xsd:integer ;
     rdfs:label "label value"^^xsd:string ;
     rdfs:comment "Numeric encoding of the veracity label: 1 = misinformation, 0 = accurate information."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:annotationConfidence
     a owl:DatatypeProperty ;
@@ -851,7 +851,7 @@ mis:annotationConfidence
     rdfs:range xsd:decimal ;
     rdfs:label "annotation confidence"^^xsd:string ;
     rdfs:comment "A real-valued confidence score in [0.0, 1.0] indicating annotator certainty or model probability for the assigned label."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:annotationTimestamp
     a owl:DatatypeProperty ;
@@ -859,7 +859,7 @@ mis:annotationTimestamp
     rdfs:range xsd:dateTime ;
     rdfs:label "annotation timestamp"^^xsd:string ;
     rdfs:comment "The date and time at which the annotation was recorded."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:interAnnotatorAgreement
     a owl:DatatypeProperty ;
@@ -867,7 +867,7 @@ mis:interAnnotatorAgreement
     rdfs:range xsd:decimal ;
     rdfs:label "inter-annotator agreement"^^xsd:string ;
     rdfs:comment "Cohen's kappa or Fleiss' kappa score reflecting agreement among human annotators for this annotation batch."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # ---------------------------------------------------------------------------
 #  3.5  Dataset datatype properties
@@ -879,7 +879,7 @@ mis:datasetName
     rdfs:range xsd:string ;
     rdfs:label "dataset name"^^xsd:string ;
     rdfs:comment "Human-readable name of the research dataset."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:datasetSize
     a owl:DatatypeProperty ;
@@ -887,7 +887,7 @@ mis:datasetSize
     rdfs:range xsd:nonNegativeInteger ;
     rdfs:label "dataset size"^^xsd:string ;
     rdfs:comment "Total number of tweet instances in the dataset."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:misinformationRatio
     a owl:DatatypeProperty ;
@@ -895,7 +895,7 @@ mis:misinformationRatio
     rdfs:range xsd:decimal ;
     rdfs:label "misinformation ratio"^^xsd:string ;
     rdfs:comment "Proportion of tweets labelled as misinformation within the dataset (class balance indicator)."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:collectionPeriodStart
     a owl:DatatypeProperty ;
@@ -903,7 +903,7 @@ mis:collectionPeriodStart
     rdfs:range xsd:date ;
     rdfs:label "collection period start"^^xsd:string ;
     rdfs:comment "Start date of the data collection window."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 mis:collectionPeriodEnd
     a owl:DatatypeProperty ;
@@ -911,7 +911,7 @@ mis:collectionPeriodEnd
     rdfs:range xsd:date ;
     rdfs:label "collection period end"^^xsd:string ;
     rdfs:comment "End date of the data collection window."^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ===========================================================================
@@ -942,7 +942,7 @@ misind:MisinformationLabel
     rdfs:comment "Controlled vocabulary label denoting that the associated tweet has been verified as containing misinformation."^^xsd:string ;
     mis:labelValue "1"^^xsd:integer ;
     skos:notation "MIS"^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 misind:AccurateLabel
     a owl:NamedIndividual, mis:InformationLabel ;
@@ -950,26 +950,26 @@ misind:AccurateLabel
     rdfs:comment "Controlled vocabulary label denoting that the associated tweet has been verified as containing accurate information."^^xsd:string ;
     mis:labelValue "0"^^xsd:integer ;
     skos:notation "ACC"^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 # --- Domain Singletons ---
 misind:PoliticalDomainInstance
     a owl:NamedIndividual, mis:PoliticalDomain ;
     rdfs:label "Political"^^xsd:string ;
     skos:notation "POL"^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 misind:EducationalDomainInstance
     a owl:NamedIndividual, mis:EducationalDomain ;
     rdfs:label "Educational"^^xsd:string ;
     skos:notation "EDU"^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 misind:HealthcareDomainInstance
     a owl:NamedIndividual, mis:HealthcareDomain ;
     rdfs:label "Healthcare"^^xsd:string ;
     skos:notation "HLT"^^xsd:string ;
-    rdfs:isDefinedBy <http://cair-nepal.org/ontology/misinformation> .
+    rdfs:isDefinedBy <http://cair-nepal.org/misinformation> .
 
 
 # ===========================================================================
