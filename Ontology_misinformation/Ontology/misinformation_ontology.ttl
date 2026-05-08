@@ -39,11 +39,6 @@
     dcterms:license    <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:identifier "http://cair-nepal.org/misinformation"^^xsd:anyURI ;
 
-    # --- Versioning ---
-    owl:versionIRI     <http://cair-nepal.org/misinformation/1.0.0> ;
-    owl:versionInfo    "1.0.0"^^xsd:string ;
-    owl:priorVersion   <http://cair-nepal.org/misinformation/0.9.0> ;
-
     # --- Ontology Annotation ---
     rdfs:comment
         "MisDetect provides a comprehensive schema for modelling tweet-level misinformation. It captures provenance, user credibility, propagation structure, domain specificity, and annotation provenance in a single coherent OWL 2 DL knowledge graph."^^xsd:string ;
