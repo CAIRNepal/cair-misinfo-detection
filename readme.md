@@ -23,7 +23,7 @@ A central commitment of this work is interpretability — every detection decisi
 - International: English-language content
 
 **Data Sources**
-- Twitter, Reddit, Facebook
+- Twitter and Reddit
 
 ---
 
